@@ -3,7 +3,7 @@
 
 currentscript="$0"
 
-git_path=$(dirname ${currentscript})
+git_path=$(realpath $(dirname ${currentscript}))
 
 
 mkdir ${git_path}/terminal_tools
@@ -14,14 +14,15 @@ pip3 install --user tldr;
 
 ## Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git
+./fzf/install  --no-fish --no-zsh --completion --key-bindings --no-update-rc --bin
 
 ## Install direnv
 git clone https://github.com/direnv/direnv.git
 mkdir bin
 bin_path=${git_path}/terminal_tools/bin ./direnv/install.sh
 
-
-echo "source ${git_path}/terminal_tools/tools_env.sh" >> ~/.bashrc
+sed -i "s|REPLACE_WITH_PATH|${git_path}|g"  ${git_path}/tools_env.sh
+echo "source ${git_path}/tools_env.sh" >> ~/.bashrc
 
 cd $current_path
 

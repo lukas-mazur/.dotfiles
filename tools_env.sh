@@ -1,8 +1,8 @@
 #!bin/bash
 
-currentscript="$0"
 
-current_path=$(dirname ${currentscript})
+current_path=$(dirname $(readlink -f ${BASH_SOURCE[0]}))
+
 
 ## tldr alias
 if [ -z "$PYTHONUSERBAE" ]; then
@@ -12,23 +12,14 @@ else
 fi
 
 
-# Setup fzf
-# ---------
-if [[ ! "$PATH" == *${current_path}/terminal_tools/fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}${current_path}/terminal_tools/fzf/bin"
-fi
-
-# Auto-completion
-# ---------------
+## fzf path
+export PATH="${PATH}:${current_path}/terminal_tools/fzf/bin"
 [[ $- == *i* ]] && source "${current_path}/terminal_tools/fzf/shell/completion.bash" 2> /dev/null
-
-# Key bindings
-# ------------
 source "${current_path}/terminal_tools/fzf/shell/key-bindings.bash"
 
 
 
-
+## direnv path
 export PATH=$PATH:${current_path}/terminal_tools/bin
-
 eval "$(direnv hook bash)"
+
