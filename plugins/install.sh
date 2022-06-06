@@ -59,3 +59,7 @@ chmod +x uninstall.sh
 
 
 
+echo "source ~/terminal_tools/tools_env.sh" >> ~/.bashrc
+
+cd $current_path
+
