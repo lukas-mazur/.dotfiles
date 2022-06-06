@@ -21,7 +21,7 @@ git clone https://github.com/direnv/direnv.git
 mkdir bin
 bin_path=${git_path}/terminal_tools/bin ./direnv/install.sh
 
-sed -i "s|REPLACE_WITH_PATH|${git_path}|g"  ${git_path}/tools_env.sh
+echo "source ${git_path}/bash_settings.sh" >> ~/.bashrc
 echo "source ${git_path}/tools_env.sh" >> ~/.bashrc
 
 cd $current_path
