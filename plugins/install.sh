@@ -46,8 +46,8 @@ pip3 uninstall -y tldr
 
 sed -i "s|source \~\/terminal\_tools\/tools\_env\.sh||g" ~/.bashrc
 
-rm -rf ~/terminal_tools
 cd ~/
+rm -rf ~/terminal_tools
 """ > uninstall.sh
 
 echo "source ~/terminal_tools/tools_env.sh" >> ~/.bashrc
