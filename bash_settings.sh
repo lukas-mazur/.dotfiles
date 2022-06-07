@@ -9,7 +9,8 @@ export BLUE='\033[01;34m'
 export GREEN='\033[01;32m'
 export NC='\033[0m' # No color
 
-export PS1="${BLUE}\w${NC}\n${GREEN}❯${NC} \[$(tput sgr0)\]"
+# export PS1="${BLUE}\w${NC}\n${GREEN}❯${NC} \[$(tput sgr0)\]"
+export PS1="${GREEN}\u@\h${NC} ${BLUE}\w${NC}\n${GREEN}❯${NC} \[$(tput sgr0)\]"
 
 
 export EDITOR=vim
