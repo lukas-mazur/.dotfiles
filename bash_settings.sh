@@ -5,7 +5,12 @@ alias grep='grep --color=auto'
 alias ls='ls --color=auto'
 
 
-PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w\n \[\033[01;32m\]❯\[\033[00m\] '
+export BLUE='\033[01;34m'
+export GREEN='\033[01;32m'
+export NC='\033[0m' # No color
+
+export PS1="${BLUE}\w${NC}\n${GREEN}❯${NC} \[$(tput sgr0)\]"
+
 
 export EDITOR=vim
 export VISUAL="$EDITOR"
